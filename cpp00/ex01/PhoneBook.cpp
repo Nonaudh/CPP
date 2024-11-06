@@ -1,5 +1,4 @@
-#include <iostream>
-#include "PhoneBook.hpp"
+#include "Directory.hpp"
 
 PhoneBook::PhoneBook(void)
 {
@@ -13,8 +12,14 @@ PhoneBook::~PhoneBook(void)
 	 return ;
 }
 
-int	PhoneBook::print_msg(void)
+void	PhoneBook::set_contact(std::string line)
 {
-	std::cout << "Salut les potes" << std::endl;
-	return (0);
+	this->contact[0].set_name(line);
+	return ;
+}
+
+void	PhoneBook::print_contact(void)
+{
+	std::cout << this->contact[0].get_name() << std::endl;
+	return ;
 }

@@ -5,9 +5,14 @@ class PhoneBook
 {
 	public:
 	
-		PhoneBook(void);
-		~PhoneBook(void);
-		int	print_msg(void);
+				PhoneBook(void);
+				~PhoneBook(void);
+		void	set_contact(std::string line);
+		void	print_contact(void);
+	
+	private:
+
+		Contact contact[8];
 };
 
 #endif
