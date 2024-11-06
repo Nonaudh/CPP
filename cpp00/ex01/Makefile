@@ -2,7 +2,7 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
-SRC = phonebook.cpp
+SRC = main.cpp PhoneBook.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
