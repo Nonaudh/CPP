@@ -2,20 +2,24 @@
 
 int	main(void)
 {
-	PhoneBook PB;
+	PhoneBook PhoneBook;
 	std::string line;
 
+	std::cout << "Command available : ADD | SEARCH | EXIT" << std::endl;
 	while (1)
 	{
 		std::getline(std::cin, line);
 		if (!line.compare("ADD"))
-			PB.new_contact();
+			PhoneBook.new_contact();
 		else if (!line.compare("SEARCH"))
-			PB.display_contact();
+			PhoneBook.display_contact();
 		else if (!line.compare("EXIT"))
 			break;
 		else
-			std::cout << "Unknow command" << std::endl;
+		{
+			std::cout << "Unknown command" << std::endl;
+			std::cout << "Command available : ADD | SEARCH | EXIT" << std::endl;
+		}	
 	}
 	return (0);
 }

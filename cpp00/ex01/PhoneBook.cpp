@@ -2,13 +2,11 @@
 
 PhoneBook::PhoneBook(void) : current_number(0), nb_of_contact(0)
 {
-	std::cout << "PhoneBook Constructor" << std::endl;
 	return ;
 }
 
 PhoneBook::~PhoneBook(void)
 {
-	 std::cout << "PhoneBook Destructor" << std::endl;
 	 return ;
 }
 
@@ -20,41 +18,41 @@ void	PhoneBook::new_contact(void)
 		current_number = 0;
 	std::cout << "Enter First Name" << std::endl;
 	std::getline(std::cin, line);
-	if (line.empty())
+	if (line.empty() || line.find('\t') != std::string::npos)
 	{
-		std::cout << "Can’t have empty fields" << std::endl;
+		std::cout << "Wrong input" << std::endl;
 		return ;
 	}
 	this->contact[current_number].set_first_name(line);
 	std::cout << "Enter Last Name" << std::endl;
 	std::getline(std::cin, line);
-	if (line.empty())
+	if (line.empty() || line.find('\t') != std::string::npos)
 	{
-		std::cout << "Can’t have empty fields" << std::endl;
+		std::cout << "Wrong input" << std::endl;
 		return ;
 	}
 	this->contact[current_number].set_last_name(line);
 	std::cout << "Enter Nickname" << std::endl;
 	std::getline(std::cin, line);
-	if (line.empty())
+	if (line.empty() || line.find('\t') != std::string::npos)
 	{
-		std::cout << "Can’t have empty fields" << std::endl;
+		std::cout << "Wrong input" << std::endl;
 		return ;
 	}
 	this->contact[current_number].set_nickname(line);
 	std::cout << "Enter Phone Number" << std::endl;
 	std::getline(std::cin, line);
-	if (line.empty())
+	if (line.empty() || line.find('\t') != std::string::npos)
 	{
-		std::cout << "Can’t have empty fields" << std::endl;
+		std::cout << "Wrong input" << std::endl;
 		return ;
 	}
 	this->contact[current_number].set_phone_number(line);
 	std::cout << "Enter Darkest Secret" << std::endl;
 	std::getline(std::cin, line);
-	if (line.empty())
+	if (line.empty() || line.find('\t') != std::string::npos)
 	{
-		std::cout << "Can’t have empty fields" << std::endl;
+		std::cout << "Wrong input" << std::endl;
 		return ;
 	}
 	this->contact[current_number].set_darkest_secret(line);
@@ -98,7 +96,7 @@ void	PhoneBook::display_contact(void)
 	index = atoi(str.c_str());
 	if ((index == 0 && str[0] != '0') || index < 0 || index > 7 || index >= this->nb_of_contact)
 	{
-		std::cout << "Invalid input" << std::endl;
+		std::cout << "Invalid index" << std::endl;
 		return ;
 	}
 	std::cout << "First Name : " << this->contact[index].get_first_name() << std::endl;

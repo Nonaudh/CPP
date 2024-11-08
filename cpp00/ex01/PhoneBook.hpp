@@ -5,8 +5,8 @@ class PhoneBook
 {
 	public:
 	
-				PhoneBook(void);
-				~PhoneBook(void);
+		PhoneBook(void);
+		~PhoneBook(void);
 		void	new_contact(void);
 		void	display_contact(void);
 	
