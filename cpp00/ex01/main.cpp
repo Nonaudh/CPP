@@ -1,4 +1,4 @@
-#include "Directory.hpp"
+#include "directory.hpp"
 
 int	main(void)
 {

@@ -1,4 +1,4 @@
-#include "Directory.hpp"
+#include "directory.hpp"
 
 Contact::Contact(void)
 {
