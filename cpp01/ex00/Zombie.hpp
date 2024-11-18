@@ -3,15 +3,17 @@
 
 #include <string>
 #include <iostream>
-#include <ostream>
+//#include <ostream>
 
 class Zombie
 {
 	public:
 	
-		Zombie(void);
+		Zombie(std::string name);
 		~Zombie(void);
 		void	announce(void);
+		Zombie *newZombie(std::string name);
+		void	randomChump(std::string name);
 
 	private:
 	

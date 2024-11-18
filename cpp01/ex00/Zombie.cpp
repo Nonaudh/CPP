@@ -1,13 +1,15 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie(void)
+Zombie::Zombie(std::string name)
 {
+	this->name = name;
 	return ;
 }
 
 Zombie::~Zombie(void)
 {
-	 return ;
+	std::cout << this->name << ": Returned to his grave" << std::endl;
+	return ;
 }
 
 void	Zombie::announce(void)
