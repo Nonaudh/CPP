@@ -4,9 +4,9 @@ int	main(void)
 {
 	Zombie	*Zomb = NULL;
 
-	Zomb = Zomb->newZombie("Pedro");
+	Zomb = newZombie("Pedro");
 	Zomb->announce();
-	Zomb->randomChump("Aragorn");
+	randomChump("Aragorn");
 	delete (Zomb);
 	return (0);
 }
