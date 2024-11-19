@@ -3,7 +3,7 @@
 int	main (void)
 {
 	Zombie	*Zomb = NULL;
-	int		number_of_Zomb = 5;
+	int		number_of_Zomb = 10;
 
 	Zomb = Zomb->zombieHorde(number_of_Zomb, "Gerard");
 	for (int i = 0; i < number_of_Zomb; i++)

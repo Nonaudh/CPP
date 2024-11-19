@@ -6,7 +6,7 @@ SRC = main.cpp Harl.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
-NAME = Unnecessary_violence
+NAME = Harl_2.0
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o ${<:.cpp=.o}
