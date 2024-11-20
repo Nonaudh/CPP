@@ -5,18 +5,18 @@
 
 class   Fixed
 {
-    private:
-        int _value;
-        static const int _bits = 8;
+	private:
+		int _value;
+		static const int _bits = 8;
 
-    public:
-        Fixed(void);
-        Fixed(Fixed &ref);
-        ~Fixed(void);
+	public:
+		Fixed(void);
+		Fixed(Fixed &ref);
+		~Fixed(void);
 
-        Fixed &operator=(Fixed &ref);
-        int getRawBits(void) const;
-        void setRawBits(int const raw);
+		Fixed&	operator=(Fixed &ref);
+		int 	getRawBits(void) const;
+		void 	setRawBits(int const raw);
 };
 
 #endif

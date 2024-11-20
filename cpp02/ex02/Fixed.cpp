@@ -5,6 +5,7 @@ Fixed::Fixed(void) : _value(0)
 	std::cout << "Default constructor called" << std::endl;
 }
 
+
 Fixed::Fixed(const int nb)
 {
 	std::cout << "Int constructor called" << std::endl;
@@ -28,7 +29,7 @@ Fixed::~Fixed(void)
 	std::cout << "Default destructor called" << std::endl;
 }
 
-Fixed&	Fixed::operator=(const Fixed &ref)
+Fixed &Fixed::operator=(const Fixed &ref)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->_value = ref._value;

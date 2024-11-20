@@ -16,7 +16,7 @@ Fixed::~Fixed(void)
     std::cout << "Default destructor called" << std::endl;
 }
 
-Fixed &Fixed::operator=(Fixed &ref)
+Fixed&  Fixed::operator=(Fixed &ref)
 {
     this->_value = ref._value;
     return (*this);
