@@ -2,7 +2,7 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp Fixed.cpp comparison_op.cpp arithmetic_op.cpp increment_op.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
