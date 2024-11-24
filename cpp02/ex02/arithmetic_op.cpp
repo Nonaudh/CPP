@@ -1,21 +1,21 @@
 #include "Fixed.hpp"
 
-int	Fixed::operator+(const Fixed &ref)
+float	Fixed::operator+(const Fixed &ref) const
 {
-	return(this->getRawBits() + ref.getRawBits());
+	return(this->toFloat() + ref.toFloat());
 }
 
-int		Fixed::operator-(const Fixed &ref)
+float	Fixed::operator-(const Fixed &ref) const
 {
-	return(this->getRawBits() - ref.getRawBits());
+	return(this->toFloat() - ref.toFloat());
 }
 
-int		Fixed::operator*(const Fixed &ref)
+float	Fixed::operator*(const Fixed &ref) const
 {
-	return(this->getRawBits() * ref.getRawBits());
+	return(this->toFloat() * ref.toFloat());
 }
 
-int		Fixed::operator/(const Fixed &ref)
+float	Fixed::operator/(const Fixed &ref) const
 {
-	return(this->getRawBits() / ref.getRawBits());
+	return(this->toFloat() / ref.toFloat());
 }
