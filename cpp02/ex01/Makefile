@@ -4,12 +4,15 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 SRC = main.cpp Fixed.cpp
 
-OBJ = $(SRC:%.cpp=%.o)
+DBUILD = build/
+
+OBJ = $(addprefix $(DBUILD), $(SRC:%.cpp=%.o))
 
 NAME = Fixed
 
-%.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o ${<:.cpp=.o}
+$(DBUILD)%.o: %.cpp
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJ)
 	@$(CC) $(OBJ) -o $(NAME)
@@ -17,7 +20,7 @@ $(NAME) : $(OBJ)
 all : $(NAME)
 
 clean :
-	rm -f $(OBJ)
+	rm -rf $(DBUILD)
 
 fclean : clean
 	rm -f $(NAME)
