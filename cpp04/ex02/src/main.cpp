@@ -1,12 +1,12 @@
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 
 int	main(void)
 {
-	const Animal *a = new Dog();
+	const AAnimal *a = new Dog();
 	a->makeSound();
-	//const Animal b;  Does not work because it's an abstract class
+	//const AAnimal b;  Does not work because it's an abstract class
 
 	delete (a);
 	return 0;

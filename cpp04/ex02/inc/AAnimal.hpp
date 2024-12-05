@@ -4,13 +4,13 @@
 #include <string>
 #include <iostream>
 
-class Animal
+class AAnimal
 {
 	public:
-		Animal(void);
-		Animal(Animal& ref);
-		virtual ~Animal(void);
-		Animal&	operator=(Animal& ref);
+		AAnimal(void);
+		AAnimal(AAnimal& ref);
+		virtual ~AAnimal(void);
+		AAnimal&	operator=(AAnimal& ref);
 		std::string	getType(void) const;
 		virtual void	makeSound(void) const = 0;
 

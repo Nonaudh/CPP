@@ -20,5 +20,6 @@ int	main(void)
 
 	Cat a;
 	Cat b(a);
+
 	return 0;
 }

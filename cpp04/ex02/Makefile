@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 INCLUDE = -Iinc
 
-SRC = src/main.cpp src/Animal.cpp src/Dog.cpp src/Cat.cpp src/Brain.cpp
+SRC = src/main.cpp src/AAnimal.cpp src/Dog.cpp src/Cat.cpp src/Brain.cpp
 
 DBUILD = build/
 

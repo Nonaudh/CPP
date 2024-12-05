@@ -1,17 +1,19 @@
 #include "Cat.hpp"
 #include "Brain.hpp"
 
-Cat::Cat(void) : Animal()
+Cat::Cat(void) : AAnimal()
 {
 	std::cout << "Default Cat Contructor called" << std::endl;
 	this->_type = "Cat";
 	this->_brain = new Brain();
 }
 
-Cat::Cat(Cat& ref) : Animal()
+Cat::Cat(Cat& ref) : AAnimal()
 {
 	std::cout << "Copy Cat Contructor called" << std::endl;
-	*this = ref;
+	this->_type = ref._type;
+	this->_brain = new Brain();
+	*this->_brain = *ref._brain;
 }
 
 Cat::~Cat(void)
@@ -25,7 +27,7 @@ Cat&	Cat::operator=(Cat& ref)
 	if (this != &ref)
 	{
 		this->_type = ref._type;
-		this->_brain = ref._brain;
+		*this->_brain = *ref._brain;
 	}
 	return (*this);
 }
