@@ -26,5 +26,5 @@ WrongDog&	WrongDog::operator=(WrongDog& ref)
 
 void	WrongDog::makeSound(void) const
 {
-	std::cout << "Wrong Wouf Wouf !" << std::endl;
+	std::cout << "Fouw Fouw !" << std::endl;
 }

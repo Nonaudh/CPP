@@ -8,10 +8,12 @@ Dog::Dog(void) : Animal()
 	this->_brain = new Brain();
 }
 
-Dog::Dog(Dog& ref) : Animal()
+Dog::Dog(Dog& ref) : Animal(ref)
 {
 	std::cout << "Copy Dog Contructor called" << std::endl;
-	*this = ref;
+	this->_type = ref._type;
+	this->_brain = new Brain();
+	*this->_brain = *ref._brain;
 }
 
 Dog::~Dog(void)
@@ -25,7 +27,7 @@ Dog&	Dog::operator=(Dog& ref)
 	if (this != &ref)
 	{
 		this->_type = ref._type;
-		this->_brain = ref._brain;
+		*this->_brain = *ref._brain;
 	}
 	return (*this);
 }

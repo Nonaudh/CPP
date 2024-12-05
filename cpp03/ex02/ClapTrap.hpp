@@ -13,6 +13,7 @@ class   ClapTrap
 		~ClapTrap(void);
 		ClapTrap& operator=(ClapTrap &ref);
 
+		std::size_t	get_hit_point(void) const;
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);

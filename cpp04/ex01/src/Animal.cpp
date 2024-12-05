@@ -1,6 +1,6 @@
 #include "Animal.hpp"
 
-Animal::Animal(void) : _type("NONE")
+Animal::Animal(void) : _type("Air")
 {
 	std::cout << "Default Animal Contructor called" << std::endl;
 }

@@ -1,5 +1,10 @@
 #include "ClapTrap.hpp"
 
+std::size_t	ClapTrap::get_hit_point(void) const
+{
+	return (this->_hit_point);
+}
+
 void	ClapTrap::attack(const std::string& target)
 {
 	if (this->_energy_point)

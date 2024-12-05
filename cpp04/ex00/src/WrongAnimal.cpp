@@ -1,6 +1,6 @@
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal(void) : _type("NONE")
+WrongAnimal::WrongAnimal(void) : _type("Air")
 {
 	std::cout << "Default WrongAnimal Contructor called" << std::endl;
 }
@@ -30,5 +30,5 @@ std::string	WrongAnimal::getType(void) const
 
 void	WrongAnimal::makeSound(void) const
 {
-	std::cout << "Wrong nothing" << std::endl;
+	std::cout << "I think there is a problem" << std::endl;
 }

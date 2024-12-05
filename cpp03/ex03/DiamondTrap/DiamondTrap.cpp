@@ -3,29 +3,28 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-DiamondTrap::DiamondTrap(void) : ClapTrap("No One_clap_name"), ScavTrap(), FragTrap()
+DiamondTrap::DiamondTrap(void) : ClapTrap("NoOne_clap_name"), ScavTrap(), FragTrap()
 {
-	std::cout << "DiamondTrap Default constructor called" << std::endl;
 	this->_name = "No One";
+	std::cout << "DiamondTrap Default constructor called by " << this->_name << std::endl;
 	this->_hit_point = FragTrap::_hit_point;
 	this->_energy_point = ScavTrap::_energy_point;
 	this->_attack_damage = FragTrap::_attack_damage;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap &ref) : ClapTrap(ref), ScavTrap(ref), FragTrap(ref)
+DiamondTrap::DiamondTrap(DiamondTrap &ref) : ClapTrap(ref), ScavTrap(), FragTrap()
 {
-	std::cout << "DiamondTrap Copy constructor called" << std::endl;
-
 	this->_name = ref._name;
+	std::cout << "DiamondTrap Copy constructor called by " << this->_name << std::endl;
 	this->_hit_point= ref._hit_point;
 	this->_energy_point = ref._energy_point;
 	this->_attack_damage = ref._attack_damage;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(), FragTrap()
 {
-	std::cout << "DiamondTrap Name constructor called" << std::endl;
 	this->_name = name;
+	std::cout << "DiamondTrap Name constructor called by " << this->_name << std::endl;
 	this->_hit_point = FragTrap::_hit_point;
 	this->_energy_point = ScavTrap::_energy_point;
 	this->_attack_damage = FragTrap::_attack_damage;
@@ -33,7 +32,7 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), Scav
 
 DiamondTrap::~DiamondTrap(void)
 {
-	std::cout << "DiamondTrap Destructor called" << std::endl;
+	std::cout << "DiamondTrap Destructor called by " << this->_name << std::endl;
 }
 
 DiamondTrap& DiamondTrap::operator=(DiamondTrap &ref)

@@ -4,14 +4,10 @@
 
 int	main(void)
 {
-	//const Animal* meta = new Animal();
-	const Animal *j = new Dog();
+	const Animal *a = new Dog();
+	a->makeSound();
+	//const Animal b;  Does not work because it's an abstract class
 
-	// std::cout << j->getType() << " " << std::endl;
-	//std::cout << meta->getType() << " " << std::endl;
-	j->makeSound();
-	//meta->makeSound();
-	//delete (meta);
-	delete (j);
+	delete (a);
 	return 0;
 }
