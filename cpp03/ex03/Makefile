@@ -1,6 +1,6 @@
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -g -Wshadow
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 INCLUDE = -IClapTrap -IScavTrap -IFragTrap -IDiamondTrap 
 

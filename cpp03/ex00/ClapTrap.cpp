@@ -5,11 +5,10 @@ ClapTrap::ClapTrap(void) : _name("No One"), _hit_point(10), _energy_point(10), _
 	std::cout << "Default constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(ClapTrap &ref)
+ClapTrap::ClapTrap(ClapTrap &ref) : _name(ref._name)
 {
 	std::cout << "Copy constructor called" << std::endl;
 
-	this->_name = ref._name;
 	this->_hit_point= ref._hit_point;
 	this->_energy_point = ref._energy_point;
 	this->_attack_damage = ref._attack_damage;
