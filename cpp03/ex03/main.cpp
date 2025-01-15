@@ -6,7 +6,8 @@
 int	main (void)
 {
 	FragTrap Jose("Jose Bove");
-	DiamondTrap Pedro("Pedro");
+	DiamondTrap test("Pedro");
+	DiamondTrap Pedro(test);
 
 	std::cout << "Jose have " << Jose.get_hit_point() << " health points" << std::endl;
 	std::cout << "Pedro have " << Pedro.get_hit_point() << " health points" << std::endl << std::endl;

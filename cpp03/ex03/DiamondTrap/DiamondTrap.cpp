@@ -12,7 +12,7 @@ DiamondTrap::DiamondTrap(void) : ClapTrap("NoOne_clap_name"), ScavTrap(), FragTr
 	this->_attack_damage = FragTrap::_attack_damage;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap &ref) : ClapTrap(ref), ScavTrap(), FragTrap()
+DiamondTrap::DiamondTrap(DiamondTrap &ref) : ClapTrap(ref), ScavTrap(ref), FragTrap(ref)
 {
 	this->_name = ref._name;
 	std::cout << "DiamondTrap Copy constructor called by " << this->_name << std::endl;
@@ -21,7 +21,7 @@ DiamondTrap::DiamondTrap(DiamondTrap &ref) : ClapTrap(ref), ScavTrap(), FragTrap
 	this->_attack_damage = ref._attack_damage;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(), FragTrap()
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
 {
 	this->_name = name;
 	std::cout << "DiamondTrap Name constructor called by " << this->_name << std::endl;
