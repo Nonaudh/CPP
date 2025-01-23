@@ -49,10 +49,7 @@ void	ShrubberyCreationForm::form_action(void) const
 		outfile << "    .....//||||\\... " << std::endl;
 	}
 	else
-	{
-		std::cout << "Can't open file !" << std::endl;
-	}
-		//throw CantOpenFile();
+		throw CantOpenFile();
 }
 
 const char *ShrubberyCreationForm::CantOpenFile::what() const throw()

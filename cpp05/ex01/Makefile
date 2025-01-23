@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 INCLUDE = -Iinc
 
-SRC = main.cpp Bureaucrat.cpp Form.cpp
+SRC = src/main.cpp src/Bureaucrat.cpp src/Form.cpp
 
 DBUILD = build/
 
