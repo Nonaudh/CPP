@@ -11,13 +11,16 @@ int	main(void)
 		PresidentialPardonForm	test("Presi");
 		ShrubberyCreationForm	test2("Tree");
 		RobotomyRequestForm		test3("Robot");
-		Bureaucrat Bob("Bob", 10);
+		Bureaucrat Bob("Bob", 1);
 		Bob.signAForm(test);
 		Bob.executeForm(test);
+		std::cout << std::endl;
 		Bob.signAForm(test2);
 		Bob.executeForm(test2);
+		std::cout << std::endl;
 		Bob.signAForm(test3);
 		Bob.executeForm(test3);
+		std::cout << std::endl;
 	}
 	catch(std::exception & e)
 	{

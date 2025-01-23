@@ -26,7 +26,7 @@ int	main(void)
 	{
 		std::cout << "Exception caught: " << e.what() << std::endl;
 	}
-
+	std::cout << std::endl;
 	try
 	{
 		Form test("test", 1, 151);

@@ -21,13 +21,11 @@ int	main(void)
 	Array<int> test2(5);
 	Array<int> test3(test2);
 
-	// test2[0] = 69;
 	print_array(test2);
 
 	test = test2;
 
 	print_array(test);
-
 
 	print_array(test3);
 

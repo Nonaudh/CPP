@@ -10,16 +10,14 @@ int	main(void)
 	Intern	intern;
 	AForm	*test = intern.makeForm("ShrubberyCreationForm", "JeanMich");
 	AForm	*test2 = intern.makeForm("Noexist", "JeanMich");
+	Bureaucrat Bob("Bob", 1);
 
 	try
 	{
-		Bureaucrat Bob("Bob", 140);
 		if (test)
 		{
 			Bob.signAForm(*test);
 			Bob.executeForm(*test);
-
-			
 		}
 		if (test2)
 		{

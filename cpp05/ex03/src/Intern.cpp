@@ -48,7 +48,7 @@ AForm	*Intern::makeForm(std::string form_name, std::string form_target)
 			return (new PresidentialPardonForm(form_target));
 
 		default :
-			std::cout << "This Form does not exist" << std::endl;
+			std::cout << form_name << " Form does not exist" << std::endl;
 			return (NULL);
 	}
 }

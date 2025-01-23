@@ -47,6 +47,7 @@ void	ShrubberyCreationForm::form_action(void) const
 		outfile << "          ||||/ " << std::endl;
 		outfile << "          ||||| " << std::endl;
 		outfile << "    .....//||||\\... " << std::endl;
+		outfile.close();
 	}
 	else
 		throw CantOpenFile();
