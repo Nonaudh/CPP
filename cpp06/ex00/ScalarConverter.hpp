@@ -7,6 +7,7 @@
 # include <climits>
 # include <cstdlib>
 # include <cmath>
+# include <ios>
 
 enum	e_type
 {
@@ -34,7 +35,6 @@ e_type	detect_type(std::string str);
 void	print_int(std::string str);
 void	print_char(std::string str);
 void	print_pseudo(std::string str);
-void	print_float(std::string str);
-void	print_double(std::string str);
+void	print_number(std::string str);
 
 # endif

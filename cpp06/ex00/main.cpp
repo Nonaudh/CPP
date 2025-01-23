@@ -7,5 +7,5 @@ int	main(int argc, char **argv)
 		ScalarConverter::convert(argv[1]);
 	}
 	else
-		std::cout << "Enter something" << std::endl;
+		std::cout << "Enter one arg" << std::endl;
 }

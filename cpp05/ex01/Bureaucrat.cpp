@@ -73,16 +73,16 @@ void	Bureaucrat::signForm(Form& ref)
 
 std::ostream&	operator<<(std::ostream& out, const Bureaucrat& ref)
 {
-    out << ref.getName() << ", bureaucrat grade " << ref.getGrade() << std::endl;
+    out << ref.getName() << ", bureaucrat grade " << ref.getGrade();
     return (out);
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Grade too high !");
+	return ("Bureaucrat Grade too high !");
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Grade too low !");
+	return ("Bureaucrat Grade too low !");
 }

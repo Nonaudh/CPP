@@ -31,8 +31,9 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 void	ShrubberyCreationForm::form_action(void) const
 {
 	std::ofstream	outfile;
+	std::string 	filename = this->_target + "_shrubbery";
 
-	outfile.open(this->_target.c_str());
+	outfile.open(filename.c_str());
 	if (outfile.is_open())
 	{
 		outfile << "      ccee88oo " << std::endl;

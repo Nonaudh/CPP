@@ -63,17 +63,17 @@ void	Form::beSigned(Bureaucrat& ref)
 	if (ref.getGrade() <= this->_gradeToSign)
 		this->_signed = true;
 	else
-		throw GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException();
 }
 
 const char *Form::GradeTooHighException::what() const throw()
 {
-	return ("Grade too high !");
+	return ("Form Grade too high !");
 }
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-	return ("Grade too low !");
+	return ("Form Grade too low !");
 }
 
 std::ostream&	operator<<(std::ostream& out, Form& ref)

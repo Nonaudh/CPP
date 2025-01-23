@@ -1,5 +1,5 @@
 #ifndef ROBOTOMYREQUESTFORM_HPP
-# define ROBOYOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
 # include "AForm.hpp"
 # include <cstdlib>

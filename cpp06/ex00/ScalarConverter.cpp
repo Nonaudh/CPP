@@ -39,10 +39,10 @@ void	ScalarConverter::convert(std::string str)
 			print_pseudo(str);
 			break;
 		case FLOAT:
-			print_float(str);
+			print_number(str);
 			break;
 		case DOUBLE:
-			print_double(str);
+			print_number(str);
 			break;
 		case INVALID:
 			std::cout << "INVALID" << std::endl;

@@ -62,7 +62,7 @@ void	print_pseudo(std::string str)
 	}
 }
 
-void	print_float(std::string str)
+void	print_number(std::string str)
 {
 	double nb = atof(str.c_str());
 	
@@ -80,19 +80,9 @@ void	print_float(std::string str)
 	else
 		std::cout << static_cast<int>(nb) << std::endl;
 
-	std::cout << std::endl << std::fabs(nb - static_cast<int>(nb)) << std::endl;
-	std::cout << "float: " << static_cast<float>(nb);
-	if (std::fabs(nb - static_cast<int>(nb)) < 0.001)
-		std::cout << ".0";
+	std::cout.precision(1);
+	std::cout << std::fixed << "float: " << static_cast<float>(nb);
 	std::cout << "f" << std::endl;
-
 	std::cout << "double: " << static_cast<double>(nb) ;
-	if (std::fabs(nb - static_cast<int>(nb)) < 0.0000000000001)
-		std::cout << ".0";
 	std::cout << std::endl;
-}
-
-void	print_double(std::string str)
-{
-	print_float(str);
 }
