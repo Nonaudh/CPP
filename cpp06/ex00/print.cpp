@@ -62,20 +62,9 @@ void	print_pseudo(std::string str)
 	}
 }
 
-int	detect_precision(std::string str)
-{
-	int i = str.find('.');
-
-	while (str[i])
-		i++;
-	return (i - str.find('.') - 1);
-}
-
 void	print_number(std::string str)
 {
 	double nb = strtod(str.c_str(), NULL);
-
-	std::cout << "prec; " << detect_precision(str) << std::endl;
 	
 	std::cout << "char: ";
 	if (nb < 0 || nb > 127)
@@ -91,7 +80,7 @@ void	print_number(std::string str)
 	else
 		std::cout << static_cast<int>(nb) << std::endl;
 
-	std::cout.precision(2);
+	std::cout.precision(1);
 	std::cout << std::fixed << "float: " << static_cast<float>(nb);
 	std::cout << "f" << std::endl;
 	std::cout << "double: " << static_cast<double>(nb) ;
