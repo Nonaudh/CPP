@@ -8,6 +8,7 @@
 # include <algorithm>
 # include <climits>
 # include <cctype>
+# include <ctime>
 
 class	BitcoinExchange
 {

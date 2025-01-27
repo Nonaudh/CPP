@@ -53,7 +53,7 @@ bool	IsInvalid(char c)
 	return (!isdigit(c) && c != '-');
 }
 
-int	bad_input(std::string date)
+int	bad_input_tmp(std::string date)
 {
 	int	year, month, day;
 
@@ -69,6 +69,38 @@ int	bad_input(std::string date)
 	if (!(sYear >> year) || !(sMonth >> month) || !(sDay >> day))
 		return (1);
 	if (year < 0 || year > 9999 || month < 0 || month > 12 || day < 0 || day > 31)
+		return (1);
+	return (0);
+}
+
+int	bad_input(std::string date)
+{
+	int	year, month, day;
+
+	if (std::find_if(date.begin(), date.end(), IsInvalid) != date.end())
+		return (1);
+	if (date.size() != 10 || date[4] != '-'|| date[7] != '-' )
+		return (1);
+
+	std::istringstream sYear(date.substr(0,4));
+	std::istringstream sMonth(date.substr(5,2));
+	std::istringstream sDay(date.substr(8,2));
+
+	if (!(sYear >> year) || !(sMonth >> month) || !(sDay >> day))
+		return (1);
+	
+	std::tm	timeinfo = {};
+
+	timeinfo.tm_year = year - 1900;
+	timeinfo.tm_mon = month - 1;
+	timeinfo.tm_mday = day;
+	
+	if (std::mktime(&timeinfo) == -1)
+	{
+		std::cout << "Error mktime\n";
+		return (1);
+	}
+	if (timeinfo.tm_year != year - 1900 || timeinfo.tm_mon != month - 1 || timeinfo.tm_mday != day)
 		return (1);
 	return (0);
 }
@@ -137,7 +169,6 @@ void	BitcoinExchange::btc(const char *filename)
 	}
 	std::getline(file, line);
 	line.erase(std::remove_if(line.begin(), line.end(), isSpaceOrTab), line.end());
-	//std::cout << line << "   \n";
 	if (line != "date|value")
 		std::cerr << "Exception needed date|value\n";
 
@@ -146,8 +177,6 @@ void	BitcoinExchange::btc(const char *filename)
 		line.erase(std::remove_if(line.begin(), line.end(), isSpaceOrTab), line.end());
 		std::istringstream sline(line);
 		std::getline(sline, date, '|');
-		// date = date.erase(date.length() - 1);
-		// std::cout << date << std::endl;
 		if (bad_input(date))
 		{
 			std::cerr << "Error: bad input => " << date << std::endl;
