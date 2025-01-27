@@ -19,10 +19,11 @@ void	print_int(std::string str)
 		std::cout << static_cast<int>(nb) << std::endl;
 
 	std::cout << "float: ";
-	std::cout << static_cast<float>(nb) << ".0f" << std::endl;
+	std::cout.precision(1);
+	std::cout << std::fixed << static_cast<float>(nb) << "f" << std::endl;
 
 	std::cout << "double: ";
-	std::cout << static_cast<double>(nb) << ".0" << std::endl;
+	std::cout << static_cast<double>(nb) << std::endl;
 }
 
 void	print_char(std::string str)
@@ -62,6 +63,16 @@ void	print_pseudo(std::string str)
 	}
 }
 
+size_t	detect_precision(std::string str)
+{
+	size_t	dotPos = str.find('.');
+	if (str.find('f') != std::string::npos)
+		str.resize(str.length() - 1);
+	size_t	lastZero = str.find_last_not_of('0');
+	size_t p = lastZero - dotPos;
+	return (p <= 0 ? 1 : p);
+}
+
 void	print_number(std::string str)
 {
 	double nb = strtod(str.c_str(), NULL);
@@ -80,7 +91,7 @@ void	print_number(std::string str)
 	else
 		std::cout << static_cast<int>(nb) << std::endl;
 
-	std::cout.precision(1);
+	std::cout.precision(detect_precision(str));
 	std::cout << std::fixed << "float: " << static_cast<float>(nb);
 	std::cout << "f" << std::endl;
 	std::cout << "double: " << static_cast<double>(nb) ;

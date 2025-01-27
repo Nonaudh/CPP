@@ -16,16 +16,12 @@ Base	*generate(void)
 	{
 		case 0:
 			return (new A);
-
 		case 1:
 			return (new B);
-		
 		case 2:
 			return (new C);
-
-		default:
-			return (NULL);
 	}
+	return (NULL);
 }
 
 void	identify(Base* p)
@@ -44,28 +40,28 @@ void	identify(Base& p)
 {
 	try
 	{
-		dynamic_cast<A&>(p);
+		A& a = dynamic_cast<A&>(p);
+		(void)a;
 		std::cout << "This is a type A" << std::endl;
 	}
 	catch(const std::exception& e)
-	{
-	}
+	{}
 
 	try
 	{
-		dynamic_cast<B&>(p);
+		B& b = dynamic_cast<B&>(p);
+		(void)b;
 		std::cout << "This is a type B" << std::endl;
 	}
 	catch(const std::exception& e)
-	{
-	}
+	{}
 	
 	try
 	{
-		dynamic_cast<C&>(p);
+		C& c = dynamic_cast<C&>(p);
+		(void)c;
 		std::cout << "This is a type C" << std::endl;
 	}
 	catch(const std::exception& e)
-	{
-	}
+	{}
 }

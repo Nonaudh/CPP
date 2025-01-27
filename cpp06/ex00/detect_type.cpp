@@ -38,7 +38,7 @@ int	is_float(std::string str)
 
 	if (str[i] == '-' || str[i] == '+')
 		i++;
-	while (str[i] && (isdigit(str[i]) || (dot && !f && str[i] == 'f') || (!dot && str[i] == '.')))
+	while (str[i] && (isdigit(str[i]) || (dot && !f && str[i] == 'f' && i == static_cast<int>(str.size() - 1)) || (!dot && str[i] == '.')))
 	{
 		if (isdigit(str[i]))
 			digit = 1;
