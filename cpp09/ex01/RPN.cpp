@@ -86,6 +86,8 @@ void	RPN::ReversePolish(std::string str)
 			}
 			calculate(*it);
 		}
+		else
+			throw BadInputException();
 	}
 	if (!nb.empty() || this->_s.size() != 1)
 	{

@@ -8,7 +8,6 @@
 # include <cstdlib>
 # include <exception>
 
-
 class	RPN
 {
 	private :
