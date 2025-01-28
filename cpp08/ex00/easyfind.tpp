@@ -8,7 +8,6 @@ typename T::iterator easyfind(T& v, int to_find)
 		return (it);
 	else
 		throw NotFoundException();
-	return (it);
 }
 
 const char	*NotFoundException::what() const throw()

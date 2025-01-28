@@ -70,6 +70,11 @@ int		Span::longestSpan(void)
 	return (*(tmp.end() - 1) - *tmp.begin());
 }
 
+std::vector<int>&	Span::get_v(void) const
+{
+	return (this->_v);
+}
+
 const char	*Span::SpanIsFull::what(void) const throw()
 {
 	return ("Span is full");

@@ -97,7 +97,7 @@ int	bad_input(std::string date)
 	
 	if (std::mktime(&timeinfo) == -1)
 	{
-		std::cout << "Error mktime\n";
+		std::cerr << "Error mktime\n";
 		return (1);
 	}
 	if (timeinfo.tm_year != year - 1900 || timeinfo.tm_mon != month - 1 || timeinfo.tm_mday != day)

@@ -17,8 +17,9 @@ int	main(void)
 		for (int i = 0; i < 1000; ++i)
 			v.push_back(i);
 		s.addNumber(v.begin(), v.end());
-		print_vector(v);
-		//std::cout << s.longestSpan() << std::endl;
+		print_vector(s.get_v());
+		std::cout << s.longestSpan() << std::endl;
+		std::cout << s.shortestSpan() << std::endl;
 	}
 	catch (std::exception& e)
 	{
