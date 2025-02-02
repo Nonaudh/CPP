@@ -11,8 +11,6 @@ int	main(int argc, char** argv)
 	{
 		std::clock_t	start = std::clock();
 
-		// std::vector<int> v = parseInputVector(argc, argv);
-
 		std::vector<int> v;
 		parseInput(v, argc, argv);
 
@@ -30,30 +28,17 @@ int	main(int argc, char** argv)
 		std::cout << std::endl;
 
 		timeElapsed(v, start, end);
-	}
-	catch (std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-		return (1);
-	}
 
-	try
-	{
-		std::clock_t	start = std::clock();
+
+		start = std::clock();
 
 		std::deque<int> d;
 		parseInput(d, argc, argv);
 
-		// printContainer(d);
-
-		std::cout << std::endl;
-
 		PmergeMe::FordJohnson(d);
 		// std::sort(d.begin(), d.end());
 
-		std::clock_t	end = std::clock();
-
-		// printContainer(d);
+		end = std::clock();
 
 		std::cout << std::endl;
 
