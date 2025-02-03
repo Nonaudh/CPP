@@ -16,7 +16,7 @@ class	Array
 		Array(unsigned int n);
 		Array(Array& ref);
 		Array&	operator=(Array& ref);
-		T&		operator[](int i);
+		T&		operator[](size_t i);
 		~Array(void);
 
 		size_t	size(void) const;
