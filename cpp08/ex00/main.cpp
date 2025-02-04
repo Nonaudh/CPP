@@ -9,26 +9,10 @@ int main (void)
 	try
 	{
 		std::cout << *easyfind(v, 69) << std::endl;
+		std::cout << *easyfind(v, 169) << std::endl;
 	}
 	catch (std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-
-	// try
-	// {
-	// 	std::vector<int>::iterator it = std::find(v.begin(), v.end(), 698);
-	// 	if (it == v.end())
-	// 		std::cout << "not found " << *it << std::endl;
-	// 	else
-	// 		std::cout << "found " << *it << std::endl;
-	// }
-	// catch (std::exception& e)
-	// {
-	// 	std::cout << e.what() << std::endl;
-	// }
-
-	// for (std::vector<int>::iterator it = v.begin(); it != v.end(); ++it)
-	// 	std::cout << *it << " ";
-	// std::cout << std::endl;
 }

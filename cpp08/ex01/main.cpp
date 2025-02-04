@@ -18,23 +18,14 @@ int	main(void)
 			v.push_back(i);
 		s.addNumber(v.begin(), v.end());
 		print_vector(s.get_v());
+		std::cout << "longestSpan : ";
 		std::cout << s.longestSpan() << std::endl;
+		std::cout << "shortestSpan : ";
 		std::cout << s.shortestSpan() << std::endl;
 	}
 	catch (std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-
-	// Span sp = Span(5);
-
-	// sp.addNumber(6);
-	// sp.addNumber(3);
-	// sp.addNumber(17);
-	// sp.addNumber(9);
-	// sp.addNumber(11);
-	// std::cout << sp.shortestSpan() << std::endl;
-	// std::cout << sp.longestSpan() << std::endl;
-
 	return 0;
 }

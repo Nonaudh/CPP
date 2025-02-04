@@ -3,21 +3,8 @@
 
 int	main(void)
 {
-	// MutantStack<int>	copy;
-	// MutantStack<int>	test;
-
-	// for (int i = 0; i < 10; ++i)
-	// 	copy.push(i);
-	
-	// test = copy;
-
-	// for (int i = 0; i < 10; ++i)
-	// {
-	// 	std::cout << test.top() << " ";
-	// 	test.pop();
-	// }
-
 	MutantStack<int> mstack;
+	MutantStack<int> copy;
 
 	mstack.push(5);
 	mstack.push(17);
@@ -27,11 +14,12 @@ int	main(void)
 	mstack.push(3);
 	mstack.push(5);
 	mstack.push(737);
-	//[...]
 	mstack.push(0);
 
-	MutantStack<int>::iterator it = mstack.begin();
-	MutantStack<int>::iterator ite = mstack.end();
+	copy = mstack;
+
+	MutantStack<int>::iterator it = copy.begin();
+	MutantStack<int>::iterator ite = copy.end();
 
 	++it;
 	--it;
@@ -41,7 +29,6 @@ int	main(void)
 		std::cout << *it << std::endl;
 		++it;
 	}
-	// std::stack<int> s(mstack);
 
 	std::cout << "\n-------------------------------\n\n";
 
@@ -55,7 +42,6 @@ int	main(void)
 	v.push_back(3);
 	v.push_back(5);
 	v.push_back(737);
-	//[...]
 	v.push_back(0);
 
 	std::vector<int>::iterator itv = v.begin();
@@ -69,7 +55,6 @@ int	main(void)
 		std::cout << *itv << std::endl;
 		++itv;
 	}
-	// std::stack<int> s(v);
 
 	return 0;
 }

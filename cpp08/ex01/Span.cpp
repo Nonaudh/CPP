@@ -38,7 +38,7 @@ void	Span::addNumber(int nb)
 void	Span::addNumber(std::vector<int>::iterator start, std::vector<int>::iterator end)
 {
 	for (std::vector<int>::iterator it = start; it != end; ++it)
-		this->addNumber(*start);
+		this->addNumber(*it);
 }
 
 int		Span::shortestSpan(void)
@@ -70,7 +70,7 @@ int		Span::longestSpan(void)
 	return (*(tmp.end() - 1) - *tmp.begin());
 }
 
-std::vector<int>&	Span::get_v(void) const
+std::vector<int>&	Span::get_v(void)
 {
 	return (this->_v);
 }
