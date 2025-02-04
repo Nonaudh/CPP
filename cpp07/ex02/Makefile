@@ -10,7 +10,7 @@ DBUILD = build/
 
 OBJ = $(addprefix $(DBUILD), $(SRC:%.cpp=%.o))
 
-NAME = Array
+NAME = array
 
 $(DBUILD)%.o: %.cpp
 	@mkdir -p $(dir $@)

@@ -10,7 +10,7 @@ DBUILD = build/
 
 OBJ = $(addprefix $(DBUILD), $(SRC:%.cpp=%.o))
 
-NAME = Iter
+NAME = iter
 
 $(DBUILD)%.o: %.cpp
 	@mkdir -p $(dir $@)
