@@ -53,26 +53,6 @@ bool	IsInvalid(char c)
 	return (!isdigit(c) && c != '-');
 }
 
-int	bad_input_tmp(std::string date)
-{
-	int	year, month, day;
-
-	if (std::find_if(date.begin(), date.end(), IsInvalid) != date.end())
-		return (1);
-	if (date.size() != 10 || date[4] != '-'|| date[7] != '-' )
-		return (1);
-
-	std::istringstream sYear(date.substr(0,4));
-	std::istringstream sMonth(date.substr(5,2));
-	std::istringstream sDay(date.substr(8,2));
-
-	if (!(sYear >> year) || !(sMonth >> month) || !(sDay >> day))
-		return (1);
-	if (year < 0 || year > 9999 || month < 0 || month > 12 || day < 0 || day > 31)
-		return (1);
-	return (0);
-}
-
 int	bad_input(std::string date)
 {
 	int	year, month, day;
