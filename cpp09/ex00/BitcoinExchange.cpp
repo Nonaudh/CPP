@@ -7,19 +7,17 @@ BitcoinExchange::BitcoinExchange(void)
 
 BitcoinExchange::BitcoinExchange(BitcoinExchange& ref)
 {
-	(void)ref;
+	(void)ref; // need to copy data i think
 }
 
 BitcoinExchange&	BitcoinExchange::operator=(BitcoinExchange& ref)
 {
-	(void)ref;
+	(void)ref; // same
 	return (*this);
 }
 
 BitcoinExchange::~BitcoinExchange(void)
-{
-
-}
+{}
 
 void	BitcoinExchange::_readDatabase(void)
 {
@@ -30,11 +28,11 @@ void	BitcoinExchange::_readDatabase(void)
 
 	std::ifstream file("data.csv");
 	if (!file.is_open())
-		std::cerr << "Exception needed not open\n";
+		std::cerr << "Exception needed not open\n"; /// trow exception !!
 	
 	std::getline(file, line);
 	if (line != "date,exchange_rate")
-		std::cerr << "Exception needed date|price\n";
+		std::cerr << "Exception needed date|price\n"; /// trow exception !!
 	while (std::getline(file, line))
 	{
 		std::istringstream sline(line);
@@ -42,7 +40,7 @@ void	BitcoinExchange::_readDatabase(void)
 		std::getline(sline, price);
 		std::istringstream sprice(price);
 		if (!(sprice >> d_price))
-			std::cerr << "Exception needed not a number\n";
+			std::cerr << "Exception needed not a number\n"; /// trow exception !!
 		this->_data[date] = d_price;
 	}
 	file.close();
