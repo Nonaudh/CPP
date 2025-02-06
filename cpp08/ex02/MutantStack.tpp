@@ -34,4 +34,4 @@ typename std::stack<T>::container_type::iterator MutantStack<T>::end(void)
 	return (this->c.end());
 }
 
-# endif
+#endif

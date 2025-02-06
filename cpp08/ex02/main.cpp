@@ -6,6 +6,7 @@ int	main(void)
 	MutantStack<int> mstack;
 	MutantStack<int> copy;
 
+	std::cout << "MutantStack<int>" << std::endl;
 	mstack.push(5);
 	mstack.push(17);
 	std::cout << mstack.top() << std::endl;
@@ -34,6 +35,7 @@ int	main(void)
 
 	std::vector<int> v;
 
+	std::cout << "std::vector<int>" << std::endl;
 	v.push_back(5);
 	v.push_back(17);
 	std::cout << v.back() << std::endl;
