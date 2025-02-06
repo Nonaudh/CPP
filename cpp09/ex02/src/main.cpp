@@ -29,6 +29,8 @@ int	main(int argc, char** argv)
 
 		timeElapsed(v, start, end);
 
+		std::cout << std::endl;
+
 
 		start = std::clock();
 
@@ -39,8 +41,6 @@ int	main(int argc, char** argv)
 		// std::sort(d.begin(), d.end());
 
 		end = std::clock();
-
-		std::cout << std::endl;
 
 		timeElapsed(d, start, end);
 	}

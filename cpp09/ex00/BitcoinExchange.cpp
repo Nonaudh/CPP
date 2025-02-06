@@ -7,12 +7,12 @@ BitcoinExchange::BitcoinExchange(void)
 
 BitcoinExchange::BitcoinExchange(BitcoinExchange& ref)
 {
-	(void)ref; // need to copy data i think
+	this->_data = ref._data;
 }
 
 BitcoinExchange&	BitcoinExchange::operator=(BitcoinExchange& ref)
 {
-	(void)ref; // same
+	this->_data = ref._data;
 	return (*this);
 }
 
@@ -39,8 +39,7 @@ void	BitcoinExchange::_readDatabase(void)
 		std::getline(sline, date, ',');
 		std::getline(sline, price);
 		std::istringstream sprice(price);
-		if (!(sprice >> d_price))
-			std::cerr << "Exception needed not a number\n"; /// trow exception !!
+		sprice >> d_price;
 		this->_data[date] = d_price;
 	}
 	file.close();
@@ -142,14 +141,16 @@ void	BitcoinExchange::btc(const char *filename)
 	std::ifstream file(filename);
 	if (!file.is_open())
 	{
-		std::cerr << "Exception needed notOpen\n";
+		std::cerr << "Can't open "<< filename << std::endl;
 		return ;
 	}
 	std::getline(file, line);
 	line.erase(std::remove_if(line.begin(), line.end(), isSpaceOrTab), line.end());
 	if (line != "date|value")
-		std::cerr << "Exception needed date|value\n";
-
+	{
+		std::cerr << "Error : 'date | value' missing" << std::endl;
+		return ;
+	}
 	while (std::getline(file, line))
 	{
 		line.erase(std::remove_if(line.begin(), line.end(), isSpaceOrTab), line.end());

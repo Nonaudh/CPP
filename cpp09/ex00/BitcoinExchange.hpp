@@ -26,4 +26,10 @@ class	BitcoinExchange
 		void	btc(const char* filename);
 };
 
+class	CantOpenFileException : std::exception
+{
+	public :
+		const char	*what() const throw();
+};
+
 #endif
