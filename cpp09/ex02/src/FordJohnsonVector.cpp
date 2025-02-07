@@ -1,12 +1,5 @@
 #include "PmergeMe.hpp"
 
-int	computeJacobsthal(int k)
-{
-	int	power = (1 << (k - 1));
-	int	sign = (k % 2 == 0) ? 1 : -1;
-	return ((power + sign) / 3);
-}
-
 void	JacobsthalInsertion(std::vector<int>& baseChain, std::vector<int>& smallElements)
 {
 	int	k = 1;
@@ -61,16 +54,7 @@ void	PmergeMe::FordJohnson(std::vector<int>& v)
 
 	FordJohnson(baseChain);
 
-	// std::vector<int>	sortedResult = baseChain;
-	// for (size_t i = 0; i < smallElements.size(); ++i)
-	// {
-	// 	std::vector<int>::iterator pos = std::lower_bound(sortedResult.begin(), sortedResult.end(), smallElements[i]);
-	// 	sortedResult.insert(pos, smallElements[i]);
-	// }
-
 	JacobsthalInsertion(baseChain, smallElements);
 
 	v = baseChain;
-
-	// v = sortedResult;
 }

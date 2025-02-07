@@ -22,18 +22,6 @@ void	timeElapsed(T& t, std::clock_t start, std::clock_t end)
 }
 
 template <typename T>
-void	parseInput(T& t, int argc, char **argv)
-{
-	for (int i = 1; i < argc; ++i)
-	{
-		int	nb = atoi(argv[i]);
-		if (nb < 0)
-			throw NegativeValueException();
-		t.push_back(nb);
-	}
-}
-
-template <typename T>
 void	printContainer(T& t)
 {
 	typename T::iterator it;

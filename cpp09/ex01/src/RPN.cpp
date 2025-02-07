@@ -1,9 +1,7 @@
 #include "RPN.hpp"
 
 RPN::RPN(void)
-{
-
-}
+{}
 
 RPN::RPN(RPN& ref)
 {
@@ -17,9 +15,7 @@ RPN&	RPN::operator=(RPN& ref)
 }
 
 RPN::~RPN(void)
-{
-
-}
+{}
 
 const char	*RPN::BadInputException::what() const throw()
 {
@@ -90,9 +86,6 @@ void	RPN::ReversePolish(std::string str)
 			throw BadInputException();
 	}
 	if (!nb.empty() || this->_s.size() != 1)
-	{
-		std::cout << "end\n";
 		throw BadInputException();
-	}
 	std::cout << this->_s.top() << std::endl;
 }

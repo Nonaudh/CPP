@@ -1,5 +1,5 @@
 #ifndef BITCOINEXCHANGE_HPP
-# define BITCOINEXCANGE_HPP
+# define BITCOINEXCHANGE_HPP
 
 # include <iostream>
 # include <map>
@@ -26,10 +26,9 @@ class	BitcoinExchange
 		void	btc(const char* filename);
 };
 
-class	CantOpenFileException : std::exception
-{
-	public :
-		const char	*what() const throw();
-};
+bool	isSpaceOrTab(char c);
+int		bad_line(std::string line);
+int		bad_price(double price);
+bool	IsInvalid(char c);
 
 #endif

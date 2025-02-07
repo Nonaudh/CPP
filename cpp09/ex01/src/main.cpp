@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 		}	
 	}
 	else
-		std::cout << "Enter one argument" << std::endl;
+		std::cout << "Usage : ./RPN 'Inverted Polish mathematical expression as one argument'" << std::endl;
 
 	return(0);
 }

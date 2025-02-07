@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 INCLUDE = -Iinc
 
-SRC = main.cpp RPN.cpp
+SRC = src/main.cpp src/RPN.cpp
 
 DBUILD = build/
 

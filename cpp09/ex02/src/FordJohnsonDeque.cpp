@@ -29,21 +29,21 @@ void	JacobsthalInsertion(std::deque<int>& baseChain, std::deque<int>& smallEleme
 	}
 }
 
-void	PmergeMe::FordJohnson(std::deque<int>& p)
+void	PmergeMe::FordJohnson(std::deque<int>& d)
 {
 	std::deque<std::pair<int, int> >	pairs;
 	std::deque<int>						smallElements;
 	
-	if (p.size() <= 1)
+	if (d.size() <= 1)
 		return ;
 
-	for (size_t i = 0; i + 1 < p.size(); i += 2)
+	for (size_t i = 0; i + 1 < d.size(); i += 2)
 	{
-		pairs.push_back(std::make_pair(std::min(p[i], p[i + 1]), std::max(p[i], p[i + 1])));
+		pairs.push_back(std::make_pair(std::min(d[i], d[i + 1]), std::max(d[i], d[i + 1])));
 	}
 
-	if (p.size() % 2)
-		smallElements.push_back(p.back());
+	if (d.size() % 2)
+		smallElements.push_back(d.back());
 
 	std::deque<int>	baseChain;
 	for(size_t i = 0; i < pairs.size(); ++i)
@@ -54,16 +54,7 @@ void	PmergeMe::FordJohnson(std::deque<int>& p)
 
 	FordJohnson(baseChain);
 
-	// std::vector<int>	sortedResult = baseChain;
-	// for (size_t i = 0; i < smallElements.size(); ++i)
-	// {
-	// 	std::vector<int>::iterator pos = std::lower_bound(sortedResult.begin(), sortedResult.end(), smallElements[i]);
-	// 	sortedResult.insert(pos, smallElements[i]);
-	// }
-
 	JacobsthalInsertion(baseChain, smallElements);
 
-	p = baseChain;
-
-	// v = sortedResult;
+	d = baseChain;
 }

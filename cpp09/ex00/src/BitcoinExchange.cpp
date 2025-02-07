@@ -28,13 +28,15 @@ void	BitcoinExchange::_readDatabase(void)
 
 	std::ifstream file("data.csv");
 	if (!file.is_open())
-		std::cerr << "Exception needed not open\n"; /// trow exception !!
-	
-	std::getline(file, line);
-	if (line != "date,exchange_rate")
-		std::cerr << "Exception needed date|price\n"; /// trow exception !!
+	{
+		std::cerr << "Can't open file data.csv : default value used" << std::endl;
+		this->_data["42"] = 0;
+		return ;
+	}
 	while (std::getline(file, line))
 	{
+		if (line == "date,exchange_rate")
+			continue ;
 		std::istringstream sline(line);
 		std::getline(sline, date, ',');
 		std::getline(sline, price);
@@ -43,11 +45,6 @@ void	BitcoinExchange::_readDatabase(void)
 		this->_data[date] = d_price;
 	}
 	file.close();
-}
-
-bool	IsInvalid(char c)
-{
-	return (!isdigit(c) && c != '-');
 }
 
 int	bad_input(std::string date)
@@ -74,26 +71,11 @@ int	bad_input(std::string date)
 	
 	if (std::mktime(&timeinfo) == -1)
 	{
-		std::cerr << "Error mktime\n";
+		std::cerr << "Error mktime" << std::endl;
 		return (1);
 	}
 	if (timeinfo.tm_year != year - 1900 || timeinfo.tm_mon != month - 1 || timeinfo.tm_mday != day)
 		return (1);
-	return (0);
-}
-
-int	bad_price(double price)
-{	
-	if (price < 0)
-	{
-		std::cerr << "Error: not a positive number." << std::endl;
-		return (1);
-	}	
-	if (price > INT_MAX)
-	{
-		std::cerr << "Error: too large number." << std::endl;
-		return (1);
-	}
 	return (0);
 }
 
@@ -119,18 +101,6 @@ void	BitcoinExchange::_calculate_bitcoin_amount(std::string date, double price)
 	}
 }
 
-bool	isSpaceOrTab(char c)
-{
-	return (c == ' ' || c == '\t');
-}
-
-int	bad_line(std::string line)
-{
-	if (std::find_if(line.begin(), line.end(), IsInvalid) == line.end())
-		return (0);
-	return (1);
-}
-
 void	BitcoinExchange::btc(const char *filename)
 {
 	std::string	line;
@@ -144,26 +114,26 @@ void	BitcoinExchange::btc(const char *filename)
 		std::cerr << "Can't open "<< filename << std::endl;
 		return ;
 	}
-	std::getline(file, line);
-	line.erase(std::remove_if(line.begin(), line.end(), isSpaceOrTab), line.end());
-	if (line != "date|value")
-	{
-		std::cerr << "Error : 'date | value' missing" << std::endl;
-		return ;
-	}
 	while (std::getline(file, line))
 	{
 		line.erase(std::remove_if(line.begin(), line.end(), isSpaceOrTab), line.end());
+		if (line == "date|value")
+			continue ;
 		std::istringstream sline(line);
 		std::getline(sline, date, '|');
 		if (bad_input(date))
 		{
-			std::cerr << "Error: bad input => " << date << std::endl;
+			std::cout << "Error: bad input => " << date << std::endl;
 			continue;
 		}
 		std::getline(sline, price);
 		std::istringstream sPrice(price);
-		if (!(sPrice >> d_price) || bad_price(d_price))
+		if (!(sPrice >> d_price))
+		{
+			std::cout << "Error: not a number => " << price << std::endl;
+			continue ;
+		}
+		if (bad_price(d_price))
 			continue;
 		_calculate_bitcoin_amount(date, d_price);
 	}

@@ -21,3 +21,8 @@ const char	*NegativeValueException::what(void) const throw()
 {
 	return ("Error : Negative Value");
 }
+
+const char	*NotANumberException::what(void) const throw()
+{
+	return ("Error : Not A Number");
+}

@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 INCLUDE = -Iinc
 
 SRC = 	src/FordJohnsonDeque.cpp  src/FordJohnsonVector.cpp  src/main.cpp \
-		src/PmergeMe.cpp
+		src/PmergeMe.cpp src/utils.cpp
 
 DBUILD = build/
 
