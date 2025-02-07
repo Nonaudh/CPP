@@ -117,7 +117,7 @@ void	BitcoinExchange::btc(const char *filename)
 	while (std::getline(file, line))
 	{
 		line.erase(std::remove_if(line.begin(), line.end(), isSpaceOrTab), line.end());
-		if (line == "date|value")
+		if (line == "date|value")			/// SKIP EMPTY LINE PLZ !
 			continue ;
 		std::istringstream sline(line);
 		std::getline(sline, date, '|');
