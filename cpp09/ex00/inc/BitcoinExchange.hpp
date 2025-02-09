@@ -14,7 +14,7 @@ class	BitcoinExchange
 {
 	private :
 		std::map<std::string, double>	_data;
-		void	_readDatabase(void);
+		int		_readDatabase(void);
 		void	_calculate_bitcoin_amount(std::string date, double price);
 
 	public :
@@ -26,9 +26,11 @@ class	BitcoinExchange
 		void	btc(const char* filename);
 };
 
+
 bool	isSpaceOrTab(char c);
 int		bad_line(std::string line);
-int		bad_price(double price);
+int		bad_price_tmp(double price);
+int		bad_price(std::istringstream& sPrice);
 bool	IsInvalid(char c);
 
 #endif

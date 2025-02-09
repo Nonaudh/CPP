@@ -1,9 +1,7 @@
 # include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange(void)
-{
-	_readDatabase();
-}
+{}
 
 BitcoinExchange::BitcoinExchange(BitcoinExchange& ref)
 {
@@ -19,7 +17,7 @@ BitcoinExchange&	BitcoinExchange::operator=(BitcoinExchange& ref)
 BitcoinExchange::~BitcoinExchange(void)
 {}
 
-void	BitcoinExchange::_readDatabase(void)
+int	BitcoinExchange::_readDatabase(void)
 {
 	std::string	line;
 	std::string date;
@@ -29,9 +27,8 @@ void	BitcoinExchange::_readDatabase(void)
 	std::ifstream file("data.csv");
 	if (!file.is_open())
 	{
-		std::cerr << "Can't open file data.csv : default value used" << std::endl;
-		this->_data["42"] = 0;
-		return ;
+		std::cerr << "Can't open file data.csv" << std::endl;
+		return (1);
 	}
 	while (std::getline(file, line))
 	{
@@ -45,6 +42,7 @@ void	BitcoinExchange::_readDatabase(void)
 		this->_data[date] = d_price;
 	}
 	file.close();
+	return (0);
 }
 
 int	bad_input(std::string date)
@@ -109,6 +107,8 @@ void	BitcoinExchange::btc(const char *filename)
 	double		d_price;
 
 	std::ifstream file(filename);
+	if (_readDatabase())
+		return ;
 	if (!file.is_open())
 	{
 		std::cerr << "Can't open "<< filename << std::endl;
@@ -117,7 +117,7 @@ void	BitcoinExchange::btc(const char *filename)
 	while (std::getline(file, line))
 	{
 		line.erase(std::remove_if(line.begin(), line.end(), isSpaceOrTab), line.end());
-		if (line == "date|value")			/// SKIP EMPTY LINE PLZ !
+		if (line == "date|value" || line.empty())
 			continue ;
 		std::istringstream sline(line);
 		std::getline(sline, date, '|');
@@ -128,13 +128,9 @@ void	BitcoinExchange::btc(const char *filename)
 		}
 		std::getline(sline, price);
 		std::istringstream sPrice(price);
-		if (!(sPrice >> d_price))
-		{
-			std::cout << "Error: not a number => " << price << std::endl;
-			continue ;
-		}
-		if (bad_price(d_price))
+		if (bad_price(sPrice))
 			continue;
+		sPrice >> d_price;
 		_calculate_bitcoin_amount(date, d_price);
 	}
 }
