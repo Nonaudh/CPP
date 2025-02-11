@@ -11,7 +11,7 @@ bool	check_digit(char *str)
 
 int	computeJacobsthal(int k)
 {
-	int	power = (1 << k);
+	int	power = (1 << (k + 1));
 	int	sign = (k % 2 == 0) ? 1 : -1;
 	return ((power + sign) / 3);
 }
