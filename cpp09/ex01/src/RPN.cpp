@@ -30,8 +30,6 @@ int	istoken(char &c)
 
 void	RPN::calculate(char& c)
 {
-	// if (this->_s.size() != 2)
-	// 	throw BadInputException();
 	int	nb2 = this->_s.top();
 	this->_s.pop();
 	int	nb1 = this->_s.top();

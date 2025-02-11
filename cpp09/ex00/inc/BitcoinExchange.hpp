@@ -29,8 +29,7 @@ class	BitcoinExchange
 
 bool	isSpaceOrTab(char c);
 int		bad_line(std::string line);
-int		bad_price_tmp(double price);
-int		bad_price(std::istringstream& sPrice);
+int		bad_price(double price);
 bool	IsInvalid(char c);
 
 #endif

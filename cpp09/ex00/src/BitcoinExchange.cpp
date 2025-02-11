@@ -32,7 +32,7 @@ int	BitcoinExchange::_readDatabase(void)
 	}
 	while (std::getline(file, line))
 	{
-		if (line == "date,exchange_rate")
+		if (line == "date,exchange_rate" || line.empty())
 			continue ;
 		std::istringstream sline(line);
 		std::getline(sline, date, ',');
@@ -123,14 +123,18 @@ void	BitcoinExchange::btc(const char *filename)
 		std::getline(sline, date, '|');
 		if (bad_input(date))
 		{
-			std::cout << "Error: bad input => " << date << std::endl;
-			continue;
+			std::cerr << "Error: bad input => " << date << std::endl;
+			continue ;
 		}
 		std::getline(sline, price);
 		std::istringstream sPrice(price);
-		if (bad_price(sPrice))
-			continue;
-		sPrice >> d_price;
+		if (!(sPrice >> d_price))
+		{
+			std::cerr << "Error: not a number => " << sPrice.str() << std::endl;
+			continue ;
+		}
+		if (bad_price(d_price))
+			continue ;
 		_calculate_bitcoin_amount(date, d_price);
 	}
 }
