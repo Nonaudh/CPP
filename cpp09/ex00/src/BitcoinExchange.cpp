@@ -47,7 +47,7 @@ int	BitcoinExchange::_readDatabase(void)
 
 int	bad_input(std::string date)
 {
-	int	year, month, day;
+	int	year, month, day; // have to bzero this shit !
 
 	if (std::find_if(date.begin(), date.end(), IsInvalid) != date.end())
 		return (1);
