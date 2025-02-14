@@ -47,7 +47,7 @@ int	BitcoinExchange::_readDatabase(void)
 
 int	bad_input(std::string date)
 {
-	int	year, month, day; // have to bzero this shit !
+	int	year, month, day;
 
 	if (std::find_if(date.begin(), date.end(), IsInvalid) != date.end())
 		return (1);
@@ -126,6 +126,7 @@ void	BitcoinExchange::btc(const char *filename)
 			std::cerr << "Error: bad input => " << date << std::endl;
 			continue ;
 		}
+		price.clear();
 		std::getline(sline, price);
 		std::istringstream sPrice(price);
 		if (!(sPrice >> d_price))
