@@ -8,7 +8,7 @@ int	main(int argc, char **argv)
 	{
 		try
 		{
-			c.ReversePolish(argv[1]);
+			c.ReversePolish(argv[1]); // to secure / 0
 		}
 		catch (std::exception& e)
 		{
