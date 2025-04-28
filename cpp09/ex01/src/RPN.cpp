@@ -49,6 +49,8 @@ void	RPN::calculate(char& c)
 			this->_s.push(nb1 * nb2);
 			break;
 		case '/':
+			if (nb2 == 0)
+				throw std::runtime_error("error : SIGFPE");
 			this->_s.push(nb1 / nb2);
 			break;
 		default:

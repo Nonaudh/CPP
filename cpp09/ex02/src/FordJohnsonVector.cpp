@@ -31,26 +31,20 @@ void	JacobsthalInsertion(std::vector<int>& baseChain, std::vector<int>& smallEle
 
 void	PmergeMe::FordJohnson(std::vector<int>& v)
 {
-	std::vector<std::pair<int, int> >	pairs;
-	std::vector<int>					smallElements;
+	std::vector<int>	smallElements;
+	std::vector<int>	baseChain;
 	
 	if (v.size() <= 1)
 		return ;
 
 	for (size_t i = 0; i + 1 < v.size(); i += 2)
 	{
-		pairs.push_back(std::make_pair(std::min(v[i], v[i + 1]), std::max(v[i], v[i + 1])));
+		smallElements.push_back(std::min(v[i], v[i + 1]));
+		baseChain.push_back(std::max(v[i], v[i + 1]));
 	}
 
 	if (v.size() % 2)
 		smallElements.push_back(v.back());
-
-	std::vector<int>	baseChain;
-	for(size_t i = 0; i < pairs.size(); ++i)
-	{
-		baseChain.push_back(pairs[i].second);
-		smallElements.push_back(pairs[i].first);
-	}
 
 	FordJohnson(baseChain);
 
