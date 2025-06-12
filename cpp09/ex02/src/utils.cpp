@@ -23,11 +23,9 @@ void	parseInput(std::vector<int>& v, int argc, char **argv)
 		if (check_digit(argv[i]))
 		{
 			std::cerr << "'" << argv[i] << "' ";
-			throw NotANumberException();
+			throw std::runtime_error("Error : Not a positive number");
 		}
 		int	nb = atoi(argv[i]);
-		if (nb < 0)
-			throw NegativeValueException();
 		v.push_back(nb);
 	}
 }

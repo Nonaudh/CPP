@@ -29,36 +29,6 @@ void	JacobsthalInsertion(std::deque<int>& baseChain, std::deque<int>& smallEleme
 	}
 }
 
-// void	PmergeMe::FordJohnson(std::deque<int>& d)
-// {
-// 	std::deque<std::pair<int, int> >	pairs;
-// 	std::deque<int>						smallElements;
-	
-// 	if (d.size() <= 1)
-// 		return ;
-
-// 	for (size_t i = 0; i + 1 < d.size(); i += 2)
-// 	{
-// 		pairs.push_back(std::make_pair(std::min(d[i], d[i + 1]), std::max(d[i], d[i + 1])));
-// 	}
-
-// 	if (d.size() % 2)
-// 		smallElements.push_back(d.back());
-
-// 	std::deque<int>	baseChain;
-// 	for(size_t i = 0; i < pairs.size(); ++i)
-// 	{
-// 		baseChain.push_back(pairs[i].second);
-// 		smallElements.push_back(pairs[i].first);
-// 	}
-
-// 	FordJohnson(baseChain);
-
-// 	JacobsthalInsertion(baseChain, smallElements);
-
-// 	d = baseChain;
-// }
-
 void	PmergeMe::FordJohnson(std::deque<int>& d)
 {
 	std::deque<int>	smallElements;

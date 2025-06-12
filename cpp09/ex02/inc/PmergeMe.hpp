@@ -23,18 +23,6 @@ class	PmergeMe
 		static void	FordJohnson(std::deque<int>& d);
 };
 
-class	NegativeValueException : public std::exception
-{
-	public :
-		const char*	what() const throw();
-};
-
-class	NotANumberException: public std::exception
-{
-	public :
-		const char*	what() const throw();
-};
-
 void	JacobsthalInsertion(std::deque<int>& baseChain, std::deque<int>& smallElements);
 void	JacobsthalInsertion(std::vector<int>& baseChain, std::vector<int>& smallElements);
 
